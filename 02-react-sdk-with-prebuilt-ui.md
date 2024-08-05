@@ -2,16 +2,18 @@
 
 ### Install the SDK
 
-Install our React SDK's with your favourite package manager:
+Install our React SDKs with your favorite package manager:
 
 `npm install @scute/react @scute/ui-react`
 
-Add your ceredentials to your environment variable handler:
+Add your credentials to your environment variable handler:
 
 ```sh
 VITE_SCUTE_APP_ID="YOUR_PROJECT_ID"
 VITE_SCUTE_BASE_URL="YOUR_BASE_URL"
 ```
+
+**NOTE**: If you are not using Vite, use "REACT_APP" as your prefix for your environment variables.
 
 ### Initialize the Scute client
 
@@ -28,7 +30,7 @@ export const scute = createClient({
 });
 ```
 
-### Wrap your React app with Scute AuthProvider
+### Wrap your React app with Scute AuthContextProvider
 
 To be able to use the `useScuteClient` and `useAuth` hooks, wrap your app inside the Scute `AuthContextProvider`:
 
@@ -49,7 +51,7 @@ export default function App() {
 
 ### Add the Scute pre-built UI
 
-First create the component that you would like to show to your authenticated users:
+First, create a component to show to your authenticated users:
 
 ```jsx
 // AuthenticatedView.jsx
@@ -67,19 +69,13 @@ export const AuthenticatedView = () => {
 
   return (
     <div style={{ margin: "1rem" }}>
-      <pre style={{ fontSize: "12px" }}>
-        {JSON.stringify({ user, session }, null, 4)}
-      </pre>
       <Profile scuteClient={scuteClient} language="en" />
-      <button onClick={() => signOut()} style={{ marginTop: "1rem" }}>
-        Sign Out
-      </button>
     </div>
   );
 };
 ```
 
-Next, create a component to switch between the authentication form and the `AuthenticatedView` based on the session status:
+Then, create a component to switch between the authentication form and the `AuthenticatedView` based on the session status:
 
 ```jsx
 // ScuteUI.jsx
@@ -95,7 +91,17 @@ export const ScuteUI = () => {
     return <AuthenticatedView />;
   }
 
-  return <Auth scuteClient={scute} language="en" />;
+  return (
+    <Auth
+      scuteClient={scute}
+      language="en"
+      policyURLs={{
+        privacyPolicy: "https://example.com/privacy",
+        termsOfService: "https://example.com/terms",
+      }}
+      logoUrl={themes[index].logoUrl}
+    />
+  );
 };
 ```
 
@@ -131,20 +137,97 @@ Congrats! You have a working Scute instance now!
 
 ### `Auth` Component
 
-| Property    | Type                                                | Default    | Description                   |
-| ----------- | --------------------------------------------------- | ---------- | ----------------------------- |
-| scuteClient | ScuteClient                                         | undefined  | The Scute client instance     |
-| onSignIn?   | () => void                                          | undefined  | Callback function for sign-in |
-| webauthn?   | "strict" &#124; "optional" &#124; "disabled"        | "optional" | Options for WebAuthn          |
-| language?   | string                                              | "en"       | Language setting              |
-| appearance? | { theme?: Theme }                                   | undefined  | Appearance settings           |
-| policyURLs? | { privacyPolicy?: string; termsOfService?: string } | undefined  | URLs for policy documents     |
-| logoUrl?    | string                                              | undefined  | URL for the application logo  |
+| Property    | Type                                                | Default    | Description                                          |
+| ----------- | --------------------------------------------------- | ---------- | ---------------------------------------------------- |
+| scuteClient | ScuteClient                                         | undefined  | The Scute client instance. This property is required |
+| onSignIn?   | () => void                                          | undefined  | Callback function for sign-in                        |
+| webauthn?   | "strict" &#124; "optional" &#124; "disabled"        | "optional" | Options for WebAuthn                                 |
+| language?   | string                                              | "en"       | Language setting                                     |
+| appearance? | { theme?: [Theme](#theme-object) }                  | undefined  | Appearance settings                                  |
+| policyURLs? | { privacyPolicy?: string; termsOfService?: string } | undefined  | URLs for policy documents                            |
+| logoUrl?    | string                                              | undefined  | URL for the application logo                         |
 
 ### `Profile` Component
 
-| Property    | Type              | Default   | Description               |
-| ----------- | ----------------- | --------- | ------------------------- |
-| scuteClient | ScuteClient       | undefined | The Scute client instance |
-| language?   | string            | "en"      | Language setting          |
-| appearance? | { theme?: Theme } | undefined | Appearance settings       |
+| Property    | Type                               | Default   | Description               |
+| ----------- | ---------------------------------- | --------- | ------------------------- |
+| scuteClient | ScuteClient                        | undefined | The Scute client instance |
+| language?   | string                             | "en"      | Language setting          |
+| appearance? | { theme?: [Theme](#theme-object) } | undefined | Appearance settings       |
+
+### `Theme` object
+
+Theme object has a colors property to change the default colors for the pre-built component. Let's say you wanted to make the primary button pink:
+
+```jsx
+<Auth
+  scuteClient={scuteClient}
+  language="en"
+  appearance={{ theme: { colors: { buttonIdleBg: "pink" } } }}
+/>
+```
+
+Here is a full list of colors and their default values:
+
+| Property                | Default Value             |
+| ----------------------- | ------------------------- |
+| errorColor              | `#fe4f0d`                 |
+| svgIconColor            | `#121212`                 |
+| svgIconMutedColor       | `#f7f7f7`                 |
+| loadingSpinnerColor     | `#cccccc`                 |
+| loadingSpinnerBorder    | `#f1f1f1`                 |
+| surfaceBg               | `#f7f7f7`                 |
+| surfaceLink             | `#666666`                 |
+| surfaceText             | `#666666`                 |
+| surfaceTextBg           | `#ffffff`                 |
+| cardBg                  | `#ffffff`                 |
+| cardHeadingText         | `#121212`                 |
+| cardBodyText            | `#121212`                 |
+| cardFooterText          | `#b0b0b0`                 |
+| cardFooterLink          | `#b0b0b0`                 |
+| panelBg                 | `#f7f7f7`                 |
+| panelText               | `#121212`                 |
+| inputBg                 | `#ffffff`                 |
+| inputText               | `#121212`                 |
+| inputPlaceholder        | `#333333`                 |
+| inputBorder             | `#333333`                 |
+| inputFocusGlow          | `rgba(46, 234, 175, 0.3)` |
+| inputDisabledBg         | `#dedede`                 |
+| inputDisabledText       | `#333333`                 |
+| buttonIconColor         | `#ffffff`                 |
+| buttonIdleText          | `#ffffff`                 |
+| buttonIdleBg            | `#212121`                 |
+| buttonIdleBorder        | `transparent`             |
+| buttonIdleShadow        | `transparent`             |
+| buttonPassiveBg         | `#f7f7f7`                 |
+| buttonPassiveText       | `#bababa`                 |
+| buttonHoverBg           | `#121212`                 |
+| buttonHoverText         | `#ffffff`                 |
+| buttonHoverBorder       | `black`                   |
+| buttonHoverShadow       | `transparent`             |
+| buttonFocusBorder       | `rgba(46, 234, 175, 0.3)` |
+| buttonFocusShadow       | `rgba(46, 234, 175, 0.3)` |
+| buttonAltIconColor      | `#ffffff`                 |
+| buttonAltIdleText       | `#333333`                 |
+| buttonAltIdleBg         | `#ffffff`                 |
+| buttonAltIdleBorder     | `rgba(0,0,0,0.2)`         |
+| buttonAltIdleShadow     | `rgba(0,0,0,0.05)`        |
+| buttonAltPassiveBg      | `#757575`                 |
+| buttonAltHoverBg        | `#121212`                 |
+| buttonAltHoverText      | `#ffffff`                 |
+| buttonAltHoverBorder    | `rgba(0,0,0,0.05)`        |
+| buttonAltHoverShadow    | `rgba(0,0,0,0.05)`        |
+| buttonAltFocusBorder    | `rgba(46, 234, 175, 0.3)` |
+| buttonAltFocusShadow    | `rgba(46, 234, 175, 0.3)` |
+| buttonSocialIconColor   | `#ffffff`                 |
+| buttonSocialIdleText    | `#222222`                 |
+| buttonSocialIdleBg      | `#f7f7f7`                 |
+| buttonSocialIdleBorder  | `transparent`             |
+| buttonSocialIdleShadow  | `transparent`             |
+| buttonSocialPassiveBg   | `#757575`                 |
+| buttonSocialHoverBg     | `#f7f7f7`                 |
+| buttonSocialHoverText   | `#222222`                 |
+| buttonSocialHoverBorder | `transparent`             |
+| buttonSocialHoverShadow | `transparent`             |
+| buttonSocialFocusBorder | `rgba(46, 234, 175, 0.3)` |
+| buttonSocialFocusShadow | `rgba(46, 234, 175, 0.3)` |
