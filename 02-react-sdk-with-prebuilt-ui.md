@@ -25,8 +25,8 @@ First initialize the Scute client using the `createClient` method exposed by `@s
 import { createClient } from "@scute/react";
 
 export const scute = createClient({
-  appId: import.meta.env.VITE_SCUTE_APP_ID as string,
-  baseUrl: import.meta.env.VITE_SCUTE_BASE_URL as string,
+  appId: import.meta.env.VITE_SCUTE_APP_ID,
+  baseUrl: import.meta.env.VITE_SCUTE_BASE_URL,
 });
 ```
 
@@ -99,7 +99,7 @@ export const ScuteUI = () => {
         privacyPolicy: "https://example.com/privacy",
         termsOfService: "https://example.com/terms",
       }}
-      logoUrl={themes[index].logoUrl}
+      logoUrl="https://example.com/logo.png"
     />
   );
 };
@@ -157,7 +157,7 @@ Congrats! You have a working Scute instance now!
 
 ### `Theme` object
 
-Theme object has a colors property to change the default colors for the pre-built component. Let's say you wanted to make the primary button pink:
+The `Theme` object has a colors property to change the default colors for the pre-built component. If you wanted to make the primary button pink:
 
 ```jsx
 <Auth
