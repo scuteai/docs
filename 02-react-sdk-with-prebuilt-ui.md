@@ -126,3 +126,25 @@ Congrats! You have a working Scute instance now!
 **With session**
 
 ![Prebuilt UI with session](/assets/with-session.png)
+
+## Component API's
+
+### `Auth` Component
+
+| Property    | Type                                                | Default    | Description                   |
+| ----------- | --------------------------------------------------- | ---------- | ----------------------------- |
+| scuteClient | ScuteClient                                         | undefined  | The Scute client instance     |
+| onSignIn?   | () => void                                          | undefined  | Callback function for sign-in |
+| webauthn?   | "strict" &#124; "optional" &#124; "disabled"        | "optional" | Options for WebAuthn          |
+| language?   | string                                              | "en"       | Language setting              |
+| appearance? | { theme?: Theme }                                   | undefined  | Appearance settings           |
+| policyURLs? | { privacyPolicy?: string; termsOfService?: string } | undefined  | URLs for policy documents     |
+| logoUrl?    | string                                              | undefined  | URL for the application logo  |
+
+### `Profile` Component
+
+| Property    | Type              | Default   | Description               |
+| ----------- | ----------------- | --------- | ------------------------- |
+| scuteClient | ScuteClient       | undefined | The Scute client instance |
+| language?   | string            | "en"      | Language setting          |
+| appearance? | { theme?: Theme } | undefined | Appearance settings       |
