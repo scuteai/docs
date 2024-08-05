@@ -9,8 +9,8 @@ Install our React SDK's with your favourite package manager:
 Add your ceredentials to your environment variable handler:
 
 ```sh
-REACT_APP_SCUTE_APP_ID="YOUR_PROJECT_ID"
-REACT_APP_SCUTE_BASE_URL="YOUR_BASE_URL"
+VITE_SCUTE_APP_ID="YOUR_PROJECT_ID"
+VITE_SCUTE_BASE_URL="YOUR_BASE_URL"
 ```
 
 ### Initialize the Scute client
@@ -30,7 +30,7 @@ export const scute = createClient({
 
 ### Wrap your React app with Scute AuthProvider
 
-To be able to use the `useScuteCllient` and `useAuth` hooks, wrap your app inside the Scute `AuthContextProvider`:
+To be able to use the `useScuteClient` and `useAuth` hooks, wrap your app inside the Scute `AuthContextProvider`:
 
 ```jsx
 // App.jsx
