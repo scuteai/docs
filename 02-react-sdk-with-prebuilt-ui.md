@@ -1,6 +1,6 @@
 # Using the react pre-built UI
 
-## Install the SDK
+### Install the SDK
 
 Install our React SDK's with your favourite package manager:
 
@@ -13,7 +13,7 @@ REACT_APP_SCUTE_APP_ID="YOUR_PROJECT_ID"
 REACT_APP_SCUTE_BASE_URL="YOUR_BASE_URL"
 ```
 
-## Initialize the Scute client
+### Initialize the Scute client
 
 First initialize the Scute client using the `createClient` method exposed by `@scute/react` package:
 
@@ -28,7 +28,7 @@ export const scute = createClient({
 });
 ```
 
-## Wrap your React app with Scute AuthProvider
+### Wrap your React app with Scute AuthProvider
 
 To be able to use the `useScuteCllient` and `useAuth` hooks, wrap your app inside the Scute `AuthContextProvider`:
 
@@ -47,7 +47,7 @@ export default function App() {
 }
 ```
 
-## Add the Scute pre-built UI
+### Add the Scute pre-built UI
 
 First create the component that you would like to show to your authenticated users:
 
@@ -119,10 +119,10 @@ export default function App() {
 
 Congrats! You have a working Scute instance now!
 
-### No session
+**No session**
 
 ![Prebuilt UI No session](/assets/no-session.png)
 
-### No session
+**With session**
 
-![Prebuilt UI No session](/assets/no-session.png)
+![Prebuilt UI with session](/assets/with-session.png)
