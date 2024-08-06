@@ -1,12 +1,12 @@
 # Styling the pre-built UI
 
-The ui components for React and VueJS take a property called `appearence`. Using this property, you can change the colors and fonts of the pre-built components so it would match the rest of your system.
+The UI components for React and Vue.js take a property called `appearence`. Using this property, you can change the colors and fonts of the pre-built components to match the rest of your system.
 
 ### `Theme` object
 
-The `appearance` property takes an object typed as `{ theme?: [Theme](#theme-object) }` and the [Theme](#theme-object) has 2 properties: `colors` and `fonts`:
+The `appearance` property takes an object typed as `{ theme?: [Theme](#theme-object) }` and the [Theme](#theme-object) has two properties: `colors` and `fonts`.
 
-If you wanted to make the primary button pink and change the font:
+For example, to make the primary button pink and change the font:
 
 ```jsx
 <Auth
@@ -24,7 +24,7 @@ If you wanted to make the primary button pink and change the font:
 />
 ```
 
-Below is a full list of colors, fonts, and their default values:
+Below is a list of colors, fonts, and their default values:
 
 **Fonts**
 
