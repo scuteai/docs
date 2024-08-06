@@ -6,7 +6,7 @@ Install our React SDKs with your favorite package manager:
 
 `npm install @scute/react @scute/ui-react`
 
-Add your credentials to your environment variable handler:
+Add your [credentials](./01-getting-credentials.md) to your environment variable handler:
 
 ```sh
 VITE_SCUTE_APP_ID="YOUR_PROJECT_ID"
