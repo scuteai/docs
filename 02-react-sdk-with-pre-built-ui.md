@@ -56,10 +56,11 @@ First, create a component to show to your authenticated users:
 ```jsx
 // AuthenticatedView.jsx
 import { Profile } from "@scute/ui-react";
-import { useAuth } from "@scute/react";
+import { useAuth, useScuteClient } from "@scute/react";
 
 export const AuthenticatedView = () => {
   const { session, user, signOut } = useAuth();
+  const scute = useScuteClient();
 
   if (session.status === "loading") {
     return null;
@@ -67,11 +68,7 @@ export const AuthenticatedView = () => {
     return <>unauthenticated</>;
   }
 
-  return (
-    <div style={{ margin: "1rem" }}>
-      <Profile scuteClient={scuteClient} language="en" />
-    </div>
-  );
+  return <Profile scuteClient={scute} language="en" />;
 };
 ```
 
