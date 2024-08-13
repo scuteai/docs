@@ -9,9 +9,9 @@ Install our React SDKs with your favorite package manager:
 Add your [credentials](./01-getting-credentials.md) to your environment variable handler:
 
 ```sh
-NEXT_PUBLIC_SCUTE_APP_ID="YOUR_PROJECT_ID"
-NEXT_PUBLIC_SCUTE_BASE_URL="YOUR_BASE_URL"
-SCUTE_SECRET="YOUR_SECRET"
+NEXT_PUBLIC_SCUTE_APP_ID="YOUR_SCUTE_PROJECT_ID"
+NEXT_PUBLIC_SCUTE_BASE_URL="YOUR_SCUTE_BASE_URL"
+SCUTE_SECRET="YOUR_SCUTE_SECRET"
 ```
 
 ### Add the Scute Next.js Handlers (App Router)

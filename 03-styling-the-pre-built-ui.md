@@ -1,6 +1,6 @@
 # Styling the pre-built UI
 
-The UI components for React and Vue.js take a property called `appearence`. Using this property, you can change the colors and fonts of the pre-built components to match the rest of your system.
+The pre-built UI for React and Vue.js take a property called `appearence`. Using this property, you can change the colors and fonts of the pre-built components to match the rest of your system.
 
 ### `Theme` object
 
@@ -12,6 +12,11 @@ For example, to make the primary button pink and change the font:
 <Auth
   scuteClient={scuteClient}
   language="en"
+  policyURLs={{
+    privacyPolicy: "/privacy",
+    termsOfService: "/terms",
+  }}
+  logoUrl={"https://example.com/logo.svg"}
   appearance={{
     theme: {
       colors: { buttonIdleBg: "pink", buttonIdleText: "black" }
@@ -110,6 +115,11 @@ You can get really creative with the colors:
 <Auth
   scuteClient={scuteClient}
   language="en"
+  policyURLs={{
+    privacyPolicy: "/privacy",
+    termsOfService: "/terms",
+  }}
+  logoUrl={"https://example.com/logo.svg"}
   appearance={{
     theme: {
       colors: {
@@ -182,6 +192,11 @@ You can even add background images to Buttons, the Surface section and the Card 
 <Auth
   scuteClient={scuteClient}
   language="en"
+  policyURLs={{
+    privacyPolicy: "/privacy",
+    termsOfService: "/terms",
+  }}
+  logoUrl={"https://example.com/logo.svg"}
   appearance={{
     theme: {
       colors: {
@@ -205,3 +220,16 @@ You can even add background images to Buttons, the Surface section and the Card 
   }}
 />
 ```
+
+### Responsiveness
+
+The Scute UI has the ability to adapt it's design based on its container size.
+
+With a container size smaller than 1000px, Scute UI will change into a single column style for ease of use in devices with smaller screen:
+
+<img src="./assets/mobile.png" alt="No session" width="400" />
+<br /><br />
+
+If the container size is bigger than 1000px, Scute UI will switch to a two column layuout to make better use of the larger screen to provide a finer experience:
+
+<img src="./assets/desktop.png" alt="No session" width="700" />

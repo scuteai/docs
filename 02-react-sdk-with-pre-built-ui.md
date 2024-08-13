@@ -1,16 +1,18 @@
-# Using the React pre-built UI
+# Using the pre-built Scute UI with React
 
-### Install the SDK
+If you would like to use the pre-built `Scute UI` with your react app, you can do so using the `@scute/ui-react` package. This package would expose the pre-built `Auth` and `Profile` components which you can use to easily integrate Scute to your current app.
 
-Install our React SDKs with your favorite package manager:
+Head over to the [example project repo](https://github.com/scuteai/react-scute-ui) to clone and run this example project and check out the [type docs](https://scute-js-docs.netlify.app/) for more `scuteClient` methods.
+
+To get started, install our React SDKs with your favorite package manager:
 
 `npm install @scute/react @scute/ui-react`
 
 Add your [credentials](./01-getting-credentials.md) to your environment variable handler:
 
 ```sh
-VITE_SCUTE_APP_ID="YOUR_PROJECT_ID"
-VITE_SCUTE_BASE_URL="YOUR_BASE_URL"
+VITE_SCUTE_APP_ID="YOUR_SCUTE_PROJECT_ID"
+VITE_SCUTE_BASE_URL="YOUR_SCUTE_BASE_URL"
 ```
 
 **NOTE**: If you are not using Vite, use "REACT_APP" as your prefix for your environment variables.

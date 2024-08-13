@@ -1,14 +1,12 @@
 <!-- TODO:
-      - Add link to the example repo
       - Add section to handle oauth
-      - Add link to typedocs
 -->
 
-# Using the Javascript Core SDK with custom UI
+# Using the Javascript Core SDK with a custom UI
 
 If you would like to use a custom UI with scute, you can do so using the `@scute/core` package. This package would expose the `scuteClient` which you can use to easily hook your UI to scute API. For this example we will be using react as our client side framework and use the `@scute/core` package to implement the authentication flow with a custom flow.
 
-Head over to the [example project repo](#) to clone and run this example project and check out the [type docs](#) for more `scuteClient` methods.
+Head over to the [example project repo](https://github.com/scuteai/react-core-sdk) to clone and run this example project and check out the [type docs](https://scute-js-docs.netlify.app/) for more `scuteClient` methods.
 
 ## Initialize the `scuteClient`
 
