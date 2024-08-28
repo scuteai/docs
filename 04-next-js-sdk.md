@@ -1,5 +1,9 @@
 # Using the Next.js SDK with the pre-built React UI
 
+If you would like to use the pre-built `Scute UI` with your Next.js app, you can do so using the `@scute/ui-react` package alongside `@scute/nextjs` and `@scute/react`. This package would expose the pre-built `Auth` and `Profile` components which you can use to easily integrate Scute to your current app.
+
+Head over to the [example project repo](https://github.com/scuteai/nextjs-scute-ui) to clone and run this example project and check out the [type docs](https://scute-js-docs.netlify.app/) for more `scuteClient` methods.
+
 ### Install the SDK
 
 Install our React SDKs with your favorite package manager:
