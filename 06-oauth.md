@@ -1,5 +1,9 @@
 # OAuth
 
+OAuth is an open-standard authorization protocol that allows third-party services to exchange your information without exposing your password. In the context of this documentation, OAuth will enable your application to authenticate users via third-party services like Google. This flow typically involves redirecting users to the OAuth provider, where they log in, and then redirecting them back to your application with an authentication token.
+
+Incorporating these suggestions could help make the document more accessible, especially to readers who may not be as familiar with OAuth or the specific SDK being used.
+
 The JavaScript SDK provides a pre-built UI for OAuth flows, as well as methods to start and authenticate OAuth flows that you can connect to your own UI. Use either of these approaches to quickly get up and running with OAuth.
 
 ### Configuration
@@ -76,10 +80,10 @@ return (
     {oauthProviders.map((provider) => (
       <button
         key={provider.id}
-        onClick={() => scuteClient.signInWithOAuth(provider.id)}
+        onClick={() => scuteClient.signInWithOAuthProvider(provider.id)}
       >
         <img
-          src={`https://api.scute.io/provider-icons/${provider.icon}`}
+          src={`https://api.scute.io/${provider.icon}`}
           alt={provider.name}
           style={{ width: "auto", height: 20 }}
         />
