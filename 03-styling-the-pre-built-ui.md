@@ -102,6 +102,15 @@ Below is a list of colors, fonts, and their default values:
 | buttonSocialHoverShadow | `transparent`             |
 | buttonSocialFocusBorder | `rgba(46, 234, 175, 0.3)` |
 | buttonSocialFocusShadow | `rgba(46, 234, 175, 0.3)` |
+| userAvatarBg            | `#f7f7f7`                 |
+| userAvatarBorder        | `transparent`             |
+| userAvatarText          | `#222222`                 |
+| userMenuBg              | `#f7f7f7`                 |
+| userMenuText            | `#222222`                 |
+| userMenuSeparator       | `#eee`                    |
+| userMenuHoverBg         | `#f1f1f1`                 |
+| userMenuHoverText       | `#222222`                 |
+| userMenuShadow          | `rgba(0,0,0,0.05)`        |
 
 ### Examples
 

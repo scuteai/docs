@@ -131,9 +131,19 @@ Congrats! You have a working Scute instance now!
 <br />
 <br />
 
-**With session**
+**With session (Profile)**
 
 <img src="./assets/with-session.png" alt="With session" width="600" />
+<br />
+<br />
+<br />
+
+**With session (UserButton)**
+
+<img src="./assets/user-button.png" alt="With session" width="360" />
+<br />
+<br />
+<br />
 
 ## Component API's
 
@@ -156,3 +166,14 @@ Congrats! You have a working Scute instance now!
 | scuteClient | ScuteClient                                                        | undefined | The Scute client instance |
 | language?   | string                                                             | "en"      | Language setting          |
 | appearance? | { theme?: [Theme](./03-styling-the-pre-built-ui.md#theme-object) } | undefined | Appearance settings       |
+
+### `UserButton` Component
+
+| Property           | Type                                                               | Default   | Description                |
+| ------------------ | ------------------------------------------------------------------ | --------- | -------------------------- |
+| scuteClient        | ScuteClient                                                        | undefined | The Scute client instance  |
+| language?          | string                                                             | "en"      | Language setting           |
+| username?          | string                                                             | undefined | Username to display        |
+| profileUrl?        | string                                                             | undefined | Profile URL to navigate to |
+| profilePictureUrl? | string                                                             | undefined | Profile picture URL        |
+| appearance?        | { theme?: [Theme](./03-styling-the-pre-built-ui.md#theme-object) } | undefined | Appearance settings        |
